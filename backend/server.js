@@ -28,5 +28,3 @@ process.on("unhandledRejection", (err) => {
         process.exit(1);
     });
 });
-
-console.log("server ends here");

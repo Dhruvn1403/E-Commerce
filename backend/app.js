@@ -14,5 +14,5 @@ app.use("/api/v1",product);
 app.use("/api/v1",user);
 
 app.use(errorMiddleware);
-console.log("app is called here");
+
 module.exports =app
