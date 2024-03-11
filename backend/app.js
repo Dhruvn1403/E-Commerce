@@ -4,7 +4,7 @@ const errorMiddleware = require("./middleware/error");
 const cookieparser = require("cookie-parser");
 
 app.use(express.json());
-app.use(cookieparser);
+app.use(cookieparser());
 
 //Routes
 const product = require("./routes/productRoute");
