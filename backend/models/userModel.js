@@ -4,6 +4,7 @@ const dns = require('dns');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
+const { log } = require("console");
 
 function validateEmail(email) {
     if (!validator.isEmail(email)) {
@@ -88,7 +89,7 @@ userSchema.methods.getResetPasswordToken = function() {
 
     //generating token
     const resetToken = crypto.randomBytes(20).toString("hex");
-
+    
     //hashing and adding resetPasswordToken to schema
     this.resetPasswordToken = crypto.createHash("sha256").update(resetToken).digest("hex");
 

@@ -7,7 +7,7 @@ exports.isAuthenticatedUser= catchAsyncErrors( async(req, res, next) => {
 
     const {token} = req.cookies;
 
-    if(!token){
+    if(!token){ 
         return next(new ErrorHandler("Please Log In to access this resource",401));
     }
 
@@ -23,7 +23,7 @@ exports.authorizeRoles = (...roles) => {
     return (req, res, next) => {
 
         if(!roles.includes(req.user.role)){
-            return next(new ErrorHandler(`Role : ${req.user.role} is not authorized to access this resource`));
+            return next(new ErrorHandler(`Role:${req.user.role} is not authorized to access this resource`));
         }
         
         next();
