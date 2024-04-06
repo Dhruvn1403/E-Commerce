@@ -62,7 +62,7 @@ const ProductDetails = () => {
   // };
 
   const submitReviewToggle = () => {
-    open ? setOpen(false) : setOpen(true);console.log("Subrevtoggle called and setting open to",!open);
+    open ? setOpen(false) : setOpen(true);
   };
 
   const reviewSubmitHandler = () => {
@@ -160,9 +160,9 @@ const ProductDetails = () => {
                 </p>
                 <p>
                 Stock :{" "} 
-                <b1>
+                <b>
                 {product.Stock}
-                </b1>
+                </b>
                 </p>
               </div>
 
@@ -190,7 +190,7 @@ const ProductDetails = () => {
               <ReactStars
                 onChange={(e) => setRating(e.target.value)}
                 value={rating}
-                size="large"
+                size={20}
               />
 
               <textarea

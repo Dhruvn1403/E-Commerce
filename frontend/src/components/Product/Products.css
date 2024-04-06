@@ -1,14 +1,16 @@
 .productsHeading {
     margin: 2vmax auto;
-    width: 15vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.171);
+    width: 80vw;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
     padding: 2vmax;
     color: rgba(0, 0, 0, 0.678);
     font: 500 1.5vmax "Roboto";
     text-align: center;
+    margin-bottom: 8vmax;
   }
   
   .products {
+    /* margin-left: 8.5vmax; */
     display: flex;
     flex-wrap: wrap;
     padding: 0 5vmax;
@@ -70,9 +72,19 @@
   }
 
   .filterBox {
-    width: 6vmax;
+    width: 20vmax;
     position: absolute;
-    top: 15vmax;
-    left: 4vmax;
+    top: 13vmax;
+    left: 8vmax;
+    text-align: center;
+    padding: 1.5vmax;
+    border-radius: 8px;
+    background-color: gray;
+  }
+  .filterBox > p {
+    font-size: large;
+  }
+  .filterBox.filterLogo {
+    height: 50px;
   }
   

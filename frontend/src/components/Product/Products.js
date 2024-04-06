@@ -8,14 +8,14 @@ import Pagination from "react-js-pagination";
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import Slider from "@material-ui/core/Slider";
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { FaFilter } from "react-icons/fa6";
 // import Box from '@mui/material/Box';
-// import Slider from '@mui/material/Slider';
-
-function valuetext(value) {
-    return `${value}°C`;
-  }
-  
+// import InputLabel from '@mui/material/InputLabel';
+// import MenuItem from '@mui/material/MenuItem';
+// import FormControl from '@mui/material/FormControl';
+// import Select from '@mui/material/Select';
+// import Box from '@mui/material/Box';
+// import Slider from '@mui/material/Slider'; 
 
 const Products = () => {
     
@@ -23,25 +23,24 @@ const Products = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([0,250000]);
+    const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
     const setCurrentPageNo = (e) => {
         setCurrentPage(e);
     }
 
-    const priceHandler = (event, newPrice) => {console.log(price);
+    const priceHandler = (event, newPrice) => {
         setPrice(newPrice);
     }
-
-    const [value, setValue] = React.useState([20, 37]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
     const { loading, error, products, productsCount, resultPerPage, filteredProductsCount } = useSelector(
         (state) => state.products
       );
-
+// console.log(productsCount, resultPerPage, filteredProductsCount);
     const { keyword }  = useParams();
 
     useEffect(() => {
@@ -57,6 +56,35 @@ const Products = () => {
             <Fragment>
                 <h2 className='productsHeading' >Products</h2>
 
+                <div className="filterBox">
+                    <p><FaFilter className='filterLogo'/> Filter by Price</p>
+                    <Slider
+                        value = {price}
+                        onChange = {priceHandler}
+                        valueLabelDisplay = "auto"
+                        aria-labelledby = "range-slider"
+                        min = {0}
+                        max = {250000}
+                    />
+
+                    {/* <Box sx={{ minWidth: 120 }}>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                            <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={age}
+                            label="Age"
+                            onChange={handleChange}
+                            >
+                            <MenuItem value={10}>Ten</MenuItem>
+                            <MenuItem value={20}>Twenty</MenuItem>
+                            <MenuItem value={30}>Thirty</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>   */}
+                </div>
+
                 <div className="products">
                     {
                         products && 
@@ -65,23 +93,9 @@ const Products = () => {
                         ))
                     }
                 </div>
-
-                <div className="filterBox">
-                    {/* <p>Price</p>
-                    <img src={FilterAltIcon} alt='filter'/>
-                    <Slider
-                        value = {price}
-                        onChange = {priceHandler}
-                        valueLabelDisplay = "auto"
-                        aria-labelledby = "range-slider"
-                        min = {0}
-                        max = {500000}
-                    /> */}
-                    
-                </div>
                 
                 {
-                    resultPerPage < productsCount &&
+                    resultPerPage < filteredProductsCount &&
                     <div className="paginationBox">
                     <Pagination
                         activePage={currentPage}
