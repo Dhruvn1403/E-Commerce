@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #007bff;
+    color: #fff;
+    /* border-bottom: 1px solid black; */
+  }
+  
+  .logo {
+    /* font-weight: bold;
+    font-size: 1.5rem; */
+    width: fit-content;
+  }
+  .logo > img {
+    border-radius: 4px;
+    height: 40px;
+    width: 40px;
+  }
+  
+  .nav-links a {
+    font-size: large;
+    margin-right: 1rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .icons {
+    display: flex;
+  }
+  
+  .icons .icon {
+    margin-right: 1rem;
+  }
+  
+  .icons a {
+    color: white;
+  }

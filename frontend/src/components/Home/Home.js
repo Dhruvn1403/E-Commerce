@@ -1,7 +1,7 @@
 import React,{ Fragment, useEffect } from 'react'
 import { CgMouse } from 'react-icons/cg'
 import "./Home.css"
-import Product from './Product.js'
+import ProductCard from './ProductCard.js'
 import Helmet from '../layout/MetaData.js'
 import {getProducts} from '../../actions/productAction.js'
 import { useDispatch, useSelector } from 'react-redux'
@@ -45,7 +45,7 @@ const Home = () => {
       <div className="container" id="container">
 
         {products && products.map((product) => (
-          <Product product={product}/>
+          <ProductCard product={product} key={product.name}/>
         ))}
 
       </div>

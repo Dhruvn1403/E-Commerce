@@ -1,7 +1,8 @@
 .banner {
     /* background-image: linear-gradient(to left, black,#eb4034 , #eb4034, black); */
-    background-image: radial-gradient(#eb4034, black);
-    height: 100vmin;
+    /* background-image: linear-gradient( blue, skyblue); */
+    background-color: #007bff;
+    height: 92.1vmin;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -50,7 +51,7 @@
     left: 0%;
     clip-path: polygon(100% 69%, 0 100%, 100% 100%);
     max-width: 100%;
-    background-color: #ffb8b8;
+    background-color: white;
 }
 
 .homeHeading {
@@ -82,7 +83,7 @@
     margin: 2vmax;
     transition: all 0.5s;
     padding-bottom: 0.5vmax;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     justify-content: center;
     align-items: center;
 }
@@ -91,7 +92,7 @@
     width: 11vmax;
     margin-top: 3px;
     margin-bottom: 2px;
-    /* border-radius: 10px; */
+    border-radius: 10px ;
 }
 
 .productCard > p{

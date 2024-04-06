@@ -1,4 +1,5 @@
 import React from 'react'
+// import { Link } from 'react-router-dom'
 import playstore from '../../../images/playstore.png'
 import appstore from '../../../images/appstore.png'
 import logo from '../../../images/download.png'
@@ -10,13 +11,15 @@ const Footer = () => {
 
         <div className="leftFooter">
             <h4>DOWNLOAD OUR APP</h4>
-            <p>Now on Android ans IOS</p>
+            <p>Now on Android and IOS</p>
             <img src={playstore} alt="playstore"/>
             <img src={appstore} alt="appstore"/>
         </div>
 
         <div className="midFooter">
+            {/* <Link to='/'> */}
             <img src={logo} alt='logo'></img>
+            {/* </Link> */}
             <h1>ECommerce</h1>
             <p>High Quality is our first priority</p>
 

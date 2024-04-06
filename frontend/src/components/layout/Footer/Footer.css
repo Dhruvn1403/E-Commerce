@@ -1,7 +1,7 @@
 footer{
     margin-top: 10vmax;
     padding: 2vmax;
-    background-color: black;
+    background-color: #007bff;
     color: white;
     display: flex;
     align-items: center;
@@ -28,20 +28,27 @@ footer{
     /* height: 5vmax; */
     margin: 1vmax;
     cursor: pointer;
+    
 }
 
 .midFooter{
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 60%;
     text-align: center;
 }
 .midFooter > h1{
     font-size: 3vmax;
     font-family: "Roboto";
-    color: #eb4034
+    color: white
 }
 .midFooter > p {
     max-width: 60%;
     margin: 1vmax auto;
+}
+.midFooter > img {
+    width: 100px;
+    height: 100px;
 }
 
 .rightFooter{
@@ -54,6 +61,7 @@ footer{
     font-family: "Franklin Gothic Medium","Arial Narrow", Arial, "sans-serif";  
     font-size: 1.5vmax;
     text-decoration: underline;
+    margin-bottom: 1vmax;
 }
 .rightFooter > a {
     margin: 0.5vmax;

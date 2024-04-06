@@ -1,23 +1,271 @@
+.whole {
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.exceptReview{
+    display: flex;
+}
+/* .photos{
+    border: 1px solid black;
+    display: block;
+} */
+.slider{
+    width: 50%;
+    /* margin-left: 2vmax; */
+}
 .ProductDetails{
     width: fit-content;
     max-width: 100%;
-    padding: 6vmax;
+    margin-top: 25%;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 2vmax;
 }
 
 .ProductDetails > img {
+    margin-top: 50%;
     width: 300px;
     height: 300px;
-    border-radius: 6px;
+    border-radius: 10px;margin: 0 auto;
 }
-
-.Slider {
+.onlyOne {
     width: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15vmax;
+    margin-top: 12vmax;
+}
+.onlyOne >img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;margin: 0 auto;
+}
+.blocks {
+    background-color: rgba(239, 239, 239, 0.899);
+    padding-top: 2vmax;
+    padding-bottom: 2vmax;
+    border: 1px solid black;
+    margin-top: 2vmax;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2vmax;
 }
 
+.detailsBlock-1 {
+    padding: 1vmax;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+}
+
+.detailsBlock-2 {
+    /* padding: 2vmax; */
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+}
+
+.detailsBlock-3 {
+    padding: 1vmax;
+    padding-bottom: 0;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+}
+
+.detailsBlock-3 > p {
+    margin: 1vmax;
+}
+
+.detailsBlock-3-1 {
+    padding: 1vmax;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.detailsBlock-3-1 > button {
+    display: inline-block;
+    margin-top: 1vmax;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007bff;
+    border: 2px solid #003cff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.detailsBlock-3-1 > button:hover {
+    background-color: #0056b3;
+    border-color: #006aff;
+}
+
+.detailsBlock-3-1 > button:focus {
+    outline: none;
+    /* Add focus styles as needed */
+}
+
+/* Optional: Style for disabled state */
+.detailsBlock-3-1 > button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.detailsBlock-3-1-1 {
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 1vmax;
+}
+
+.detailsBlock-3-1-1 > button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.616);
+    padding: 0.5vmax;
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s;
+  }
+  .detailsBlock-3-1-1 > button:hover {
+    background-color: rgba(0, 0, 0, 0.767);
+  }
+  
+  .detailsBlock-3-1-1 > input {
+    border: none;
+    margin: 0 auto;
+    padding: 0.5vmax;
+    width: 1.5vmax;
+    text-align: center;
+    outline: none;
+    /* font: 400 0.8vmax "Roboto"; */
+    /* color: rgba(0, 0, 0, 0.74); */
+  }
+
+  .greenColor {
+    color: green;
+  }
+
+  .redColor {
+    color: red;
+  }
+
+.detailsBlock-3 > p {
+    font-size: large;
+    font-weight: 600;
+}
+.detailsBlock-3 > p > b {
+    font-size: medium;
+}
+.detailsBlock-3 > p > b1 {
+    font-size: large;
+    font-weight: 100;
+}
+
+.detailsBlock-4 {
+    padding: 1vmax;
+    padding-top: 0;
+    font-size: large;
+    font-weight: 600;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 1vmax;
+}
+
+.detailsBlock-4 > p {
+    font-size: medium;
+    font-weight: 100;
+}
+
+.submitReview {
+    border: none;
+    background-color: green;
+    font: 500 0.7vmax "Roboto";
+    border-radius: 20px;
+    padding: 0.6vmax 2vmax;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+    margin: 1vmax 42%;
+    /* margin-top: 1vmax; */
+  }
+.submitReview:hover {
+    background-color: darkgreen;
+    transform: scale(1.1);
+  }
+
+  .reviewsHeading {
+    color: #000000be;
+    font: 500 2vmax "Roboto";
+    font-weight: 800;
+    text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.226);
+    padding: 1vmax;
+    width: 20vmax;
+    margin: auto;
+    margin-top: 3vmax;
+    margin-bottom: 4vmax;
+  }
+  .reviews {
+    display: flex;
+    overflow: auto;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+
+  .reviewCard {
+    flex: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
+    border: 1px solid rgba(56, 56, 56, 0.116);
+    width: 30vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vmax;
+    padding: 3vmax;
+  }
+  .reviewCard > img {
+    width: 5vmax;
+  }
+  .reviewCard > p {
+    color: rgba(0, 0, 0, 0.836);
+    font: 600 0.9vmax "Roboto";
+  }
+  .reviewCardComment {
+    color: rgba(0, 0, 0, 0.445);
+    font: 300 0.8vmax cursive;
+  }
+  
+  .noReviews {
+    font: 400 1.3vmax "Gill Sans";
+    text-align: center;
+    color: rgba(0, 0, 0, 0.548);
+  }
+  
 
 
 
