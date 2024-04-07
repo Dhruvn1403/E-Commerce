@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ProductDetails.css'
-import { getProductDetails } from '../../actions/productAction'
+import { getProductDetails, clearErrors } from '../../actions/productAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import Slider from "react-slick";
@@ -15,6 +15,8 @@ import {
 // import {useAlert} from 'react-alert'
 import Loader from '../layout/Loader/Loader'
 import ReviewCard from './ReviewCard';
+import Helmet from '../layout/MetaData';
+// import { Helmet } from 'react-helmet';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -28,8 +30,8 @@ const ProductDetails = () => {
   useEffect(() => {
 
     if(error){
+        dispatch(clearErrors);
         return alert.error(error);
-        // dispatch(clearErrors);
       }
 
     dispatch(getProductDetails(id));
@@ -102,6 +104,7 @@ const ProductDetails = () => {
   return (
 
     <div className='whole'>
+      <Helmet title={`${product.name} -- ECOMMERCE`}/>
 
     <div className='exceptReview'>
       {/* <div className="photos"> */}

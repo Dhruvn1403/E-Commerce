@@ -3,30 +3,35 @@ import { CgMouse } from 'react-icons/cg'
 import "./Home.css"
 import ProductCard from './ProductCard.js'
 import Helmet from '../layout/MetaData.js'
-import {getProducts} from '../../actions/productAction.js'
+import { getProducts, clearErrors } from '../../actions/productAction.js'
 import { useDispatch, useSelector } from 'react-redux'
-
+import Loader from '../layout/Loader/Loader.js'
 
 const Home = () => {
 
   const dispatch = useDispatch();
-  const { loading, error, products, productsCount } = useSelector(
+  const { loading, error, products } = useSelector(
     (state) => state.products
   );
 
   useEffect(() => {
 
     if(error){
+      dispatch(clearErrors());
       return alert.error(error);
     }
 
     dispatch(getProducts());
   }, [dispatch, error])
 
+  if(loading){
+    return <Loader/>
+  }
+
   return (
     <Fragment>
       
-      <Helmet title="ECommerce"/>
+      <Helmet title="ECOMMERCE"/>
 
       <div className="banner">
 

@@ -20,7 +20,7 @@ const Header = () => {
         <Link to="/search">
           <div className="icon"><FaSearch /></div>
         </Link>
-        <Link to="/search">
+        <Link to="/login">
           <div className="icon"><FaShoppingCart /></div>
         </Link>
         <Link to="/search">
