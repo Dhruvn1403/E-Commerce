@@ -6,8 +6,11 @@ import Home from './components/Home/Home.js';
 import ProductDetails from './components/Product/ProductDetails.js'
 import Products from './components/Product/Products.js'
 import Search from './components/Product/Search.js'
+import LoginSignUp from './components/User/LoginSignUp.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
+import store from './store.js';
+import { loadUser } from './actions/userAction.js';
 
 function App() {
 
@@ -18,6 +21,9 @@ function App() {
         families : ['Roboto', 'Droid Sana', 'Chilanka']
       }
     });
+
+    store.dispatch(loadUser());
+
   },[]);
 
   return (
@@ -29,6 +35,7 @@ function App() {
         <Route exact path="/products" element={<Products/>}/>
         <Route path="/products/:keyword" element={<Products/>}/>
         <Route exact path="/search" element={<Search />}/>
+        <Route exact path="/login" element={<LoginSignUp />}/>
       </Routes>
       <Footer/>
     </Router>

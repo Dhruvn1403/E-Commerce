@@ -23,7 +23,7 @@ const Header = () => {
         <Link to="/login">
           <div className="icon"><FaShoppingCart /></div>
         </Link>
-        <Link to="/search">
+        <Link to="/login">
           <div className="icon"><FaUser /></div>
         </Link>
       </div>

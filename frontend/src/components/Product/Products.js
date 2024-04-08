@@ -15,10 +15,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useAlert } from 'react-alert';
 
 const Products = () => {
 
     const dispatch = useDispatch();
+    const alert = useAlert;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([0,250000]);
@@ -46,12 +48,12 @@ const Products = () => {
     useEffect(() => {
 
         if(error){
+            alert.error(error);
             dispatch(clearErrors());
-            return alert.error(error);
         }
 
         dispatch(getProducts(keyword, currentPage, price, category));
-    },[dispatch, error, keyword, currentPage, price, category]);
+    },[alert, dispatch, error, keyword, currentPage, price, category]);
 
   return (
     <Fragment>
