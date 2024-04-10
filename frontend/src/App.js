@@ -10,10 +10,11 @@ import LoginSignUp from './components/User/LoginSignUp.js';
 import Profile from './components/User/Profile.js';
 import UpdateProfile from './components/User/UpdateProfile.js';
 import UpdatePassword from './components/User/UpdatePassword.js';
+import ForgotPassword from './components/User/ForgotPassword.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
 import store from './store.js';
-import { loadUser } from './actions/userAction.js';
+import { clearErrors, loadUser } from './actions/userAction.js';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
     });
 
     store.dispatch(loadUser());
+    setTimeout(() => {
+      store.dispatch(clearErrors());
+    },100);
 
   },[]);
 
@@ -45,6 +49,7 @@ function App() {
         {isAuthenticated && <Route exact path="/account" element={<Profile />}/>}
         {isAuthenticated && <Route exact path="/me/update" element={<UpdateProfile/>}/>}
         {isAuthenticated && <Route exact path="/password/update" element={<UpdatePassword/>}/>}
+        <Route exact path="/password/forgot" element={<ForgotPassword/>}/>
       </Routes>
       <Footer/>
     </Router>

@@ -41,7 +41,7 @@ const LoginSignUp = () => {
   const { name, email, password } = user;
 
   const [avatar, setAvatar] = useState("/Profile.jpeg");
-  const [avatarPreview, setAvatarPreview] = useState("/Profile.jpg");
+  const [avatarPreview, setAvatarPreview] = useState("/Profile.jpeg");
 
   useEffect(() => {
     if(error) {

@@ -93,7 +93,7 @@ exports.registerUser = catchAsyncErrors( async(req, res, next) => {
 
     const resetPasswordUrl = `${req.protocol}://${req.get("host")}/api/v1/password/reset/${resetToken}`;
     
-    const message = `Your password reset token is :- /n/n ${resetPasswordUrl}`;
+    const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\n If you have not requested for such password recovery please ignore the mail`;
 
     try{
 
@@ -152,7 +152,7 @@ exports.registerUser = catchAsyncErrors( async(req, res, next) => {
 
  //Get User details
  exports.getUserDetails = catchAsyncErrors(async(req, res, next) => {
-
+    // if(!req.user){res.status(201).json({success: false});}
     const user = await User.findById(req.user.id);
 
     if(!user){
