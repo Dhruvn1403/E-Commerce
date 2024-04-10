@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'; 
-import { FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'; 
+import { FaSearch, FaUser } from 'react-icons/fa'; 
 import logo from "../../../images/download.png";
+import UserOptions from './UserOptions';
 import './Header.css'
 
-const Header = () => {
+const Header = ({isAuthenticated, user}) => {
+
   return (
     <header className="header">
       <div className="logo">
@@ -17,15 +19,22 @@ const Header = () => {
         <Link to="/about">About</Link>
       </nav>
       <div className="icons">
-        <Link to="/search">
-          <div className="icon"><FaSearch /></div>
-        </Link>
-        <Link to="/login">
-          <div className="icon"><FaShoppingCart /></div>
-        </Link>
-        <Link to="/login">
-          <div className="icon"><FaUser /></div>
-        </Link>
+        {
+          isAuthenticated ? (
+            <div className="icon">
+              <UserOptions className="icon" user={user} isAuthenticated={isAuthenticated} />
+            </div>
+          ) : (
+            <Fragment>
+              <Link to="/search">
+              <div className="icon"><FaSearch /></div>
+            </Link>
+              <Link to="/login">
+            <div className="icon"><FaUser /></div>
+          </Link>
+            </Fragment>
+          )
+        }
       </div>
     </header>
   );

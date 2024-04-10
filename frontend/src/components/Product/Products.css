@@ -73,10 +73,10 @@
 
   .filterBox {
     font: 100 0.8vmax "Roboto";
-    width: 30vmax;
+    width: 20vmax;
     position: absolute;
     top: 13vmax;
-    left: 14.5vmax;
+    left: 24.5vmax;
     text-align: center;
     padding: 1.5vmax;
     border-radius: 10px;
@@ -90,7 +90,7 @@
 
   .categoryBox {
     height: 3.5vmax;
-    width: 30vmax;
+    width: 20vmax;
     position: absolute;
     top: 13vmax;
     left: 51.5vmax;

@@ -5,6 +5,8 @@ import ProductCard from './ProductCard.js'
 import Helmet from '../layout/MetaData.js'
 import { getProducts, clearErrors } from '../../actions/productAction.js'
 import { useDispatch, useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../layout/Loader/Loader.js'
 
 const Home = () => {
@@ -14,11 +16,13 @@ const Home = () => {
     (state) => state.products
   );
 
+  const notify = (message) => toast(message);
+
   useEffect(() => {
 
     if(error){
       dispatch(clearErrors());
-      return alert.error(error);
+      notify(error);
     }
 
     dispatch(getProducts());
@@ -54,6 +58,8 @@ const Home = () => {
         ))}
 
       </div>
+
+      <ToastContainer/>
 
     </Fragment>
   )

@@ -33,10 +33,16 @@
   
   .icons {
     display: flex;
+    /* margin-right: 4vmax; */
   }
   
   .icons .icon {
     margin-right: 1rem;
+  }
+
+  .userIcon {
+    position: fixed;
+    right: 2vmax;
   }
   
   .icons a {
@@ -45,4 +51,22 @@
   .icons a:hover {
     color: black;
     transition: all 0.5s;
+  }
+
+  .speedDial {
+    position: fixed;
+    right: 0.5vmax;
+    top: 0.5vmax;
+  }
+  
+  .speedDialIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+  }
+
+  .MuiSpeedDial-root
+  .MuiSpeedDial-fab {
+    width: 35px;
+    height: 35px;
   }

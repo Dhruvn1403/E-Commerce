@@ -15,6 +15,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useAlert } from 'react-alert';
 
 const Products = () => {
@@ -38,6 +40,8 @@ const Products = () => {
         setCategory(event.target.value);
     };
 
+    const notify = (message) => toast(message);
+
 
     const { loading, error, products, productsCount, resultPerPage, filteredProductsCount } = useSelector(
         (state) => state.products
@@ -48,7 +52,7 @@ const Products = () => {
     useEffect(() => {
 
         if(error){
-            alert.error(error);
+            notify(error);
             dispatch(clearErrors());
         }
 
@@ -128,6 +132,8 @@ const Products = () => {
             </Fragment>
             )
         }
+
+        <ToastContainer/>
     </Fragment>
   )
 }
