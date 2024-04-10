@@ -79,6 +79,11 @@
     font: 300 0.9vmax cursive;
     outline: none;
   }
+
+  .eyebtn {
+    position: relative;
+    margin-right: 0px;
+  }
   
   .loginForm > div > svg,
   .signUpForm > div > svg {

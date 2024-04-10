@@ -8,6 +8,8 @@ import Loader from '../layout/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, clearErrors, register } from '../../actions/userAction';
 import { useEffect } from 'react';
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -24,6 +26,11 @@ const LoginSignUp = () => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  // const [passwordVisible, setPasswordVisible] = useState(false);
+
+  // const togglePasswordVisibility = () => {
+  //   setPasswordVisible(!passwordVisible);
+  // };
 
   const [user, setUser] = useState({
     name: "",
@@ -134,12 +141,17 @@ const LoginSignUp = () => {
                         <div className="loginPassword">
                         <LockOpenIcon />
                         <input
+                            // type={passwordVisible ? "text" : "password"}
                             type="password"
                             placeholder="Password"
                             required
                             value={loginPassword}
                             onChange={(e) => setLoginPassword(e.target.value)}
                         />
+                        {/* <FontAwesomeIcon className='eyebtn'
+                          icon={passwordVisible ? faEyeSlash : faEye}
+                          onClick={togglePasswordVisibility}
+                        /> */}
                         </div>
     
                         <Link to="/password/forgot">Forget Password ?</Link>

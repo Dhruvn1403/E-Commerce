@@ -167,11 +167,11 @@ exports.registerUser = catchAsyncErrors( async(req, res, next) => {
 
 //update password
 exports.updatePassword = catchAsyncErrors(async(req, res, next) => {
-
+   
     const user = await User.findById(req.user.id).select("+password");
-
-    const isPasswordMatched = await user.comparePassword( req.body.oldpassword );
-    
+ 
+    const isPasswordMatched = await user.comparePassword( req.body.oldPassword );
+   
     if(!user){
         return next(new ErrorHandler("User not found",404));
     }
@@ -180,15 +180,15 @@ exports.updatePassword = catchAsyncErrors(async(req, res, next) => {
         return next(new ErrorHandler("Old Password incorrect!",400));
     }
 
-    if(req.body.password !== req.body.confirmPassword){
+    if(req.body.newPassword !== req.body.confirmPassword){
         return next(new ErrorHandler("Passwords does not match",404));
     }
 
-    if(await user.comparePassword(req.body.password)){
+    if(await user.comparePassword(req.body.newPassword)){
         return next(new ErrorHandler("New password cannot be the same as old one!", 400));
     }
-
-    user.password = await req.body.password;
+    
+    user.password = await req.body.newPassword;
 
     await user.save();
 

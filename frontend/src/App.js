@@ -9,6 +9,7 @@ import Search from './components/Product/Search.js'
 import LoginSignUp from './components/User/LoginSignUp.js';
 import Profile from './components/User/Profile.js';
 import UpdateProfile from './components/User/UpdateProfile.js';
+import UpdatePassword from './components/User/UpdatePassword.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
 import store from './store.js';
@@ -43,6 +44,7 @@ function App() {
         <Route exact path="/login" element={<LoginSignUp />}/>
         {isAuthenticated && <Route exact path="/account" element={<Profile />}/>}
         {isAuthenticated && <Route exact path="/me/update" element={<UpdateProfile/>}/>}
+        {isAuthenticated && <Route exact path="/password/update" element={<UpdatePassword/>}/>}
       </Routes>
       <Footer/>
     </Router>
