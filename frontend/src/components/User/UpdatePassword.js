@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import "./UpdatePassword.css";
 import Loader from "../layout/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { clearErrors, updatePassword } from "../../actions/userAction";
 import { UPDATE_PASSWORD_RESET } from "../../constants/userConstants";
 import MetaData from "../layout/MetaData";
@@ -43,14 +43,17 @@ const UpdatePassword = ({ history }) => {
     }
 
     if (isUpdated) {
-    // notify("Password updated successfully")
+    notify("Password updated successfully")
     // console.log("updated")
 
-      navigate("/account");
+    //   navigate("/account");
 
       dispatch({
         type: UPDATE_PASSWORD_RESET,
       });
+      setTimeout(() => {
+        navigate("/account");
+      }, 1000); // Adjust the delay time as needed
     }
   }, [dispatch, error, navigate, isUpdated]);
 

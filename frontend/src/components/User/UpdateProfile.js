@@ -55,13 +55,6 @@ const UpdateProfile = ({ history }) => {
   useEffect(() => {
 
     const notify = (message) => toast(message);
-    const fetchUserData = async () => {
-        try {
-          await dispatch(loadUser());
-        } catch (error) {
-          console.error("Error loading user:", error);
-        }
-      };
 
     if (user) {
       setName(user.name);
@@ -75,57 +68,17 @@ const UpdateProfile = ({ history }) => {
     }
 
     if (isUpdated) {
-      
-      fetchUserData();
-      // dispatch(loadUser());
-      notify("Profile Updated Successfully");
-      navigate("/account");
 
+      notify("Profile Updated Successfully");
       dispatch({
         type: UPDATE_PROFILE_RESET,
       });
+      setTimeout(() => {
+        navigate("/account");
+        dispatch(loadUser());
+      }, 1000); 
     }
   }, [dispatch, error, navigate, history, user, isUpdated]);
-
-// useEffect(() => {
-//     const notify = (message) => toast(message);
-  
-//     const fetchUserData = async () => {
-//       try {
-//         // Fetch user data
-//         await dispatch(loadUser());
-//       } catch (error) {
-//         console.error("Error loading user:", error);
-//       }
-//     };
-  
-//     const updateUserProfile = async () => {
-//       if (isUpdated) {
-//         console.log("Profile updated successfully");
-//         await fetchUserData(); // Ensure user state is updated
-//         notify("Profile Updated Successfully");
-//         navigate("/account");
-//         dispatch({ type: UPDATE_PROFILE_RESET });
-//       }
-//     };
-  
-//     updateUserProfile(); // Call the function to handle profile updates
-  
-//   }, [dispatch, isUpdated, navigate]);
-  
-//   // Ensure that you only set state values after the user state has updated
-//   useEffect(() => {
-//     const notify = (message) => toast(message);
-//     if (user) {
-//       setName(user.name);
-//       setEmail(user.email);
-//       setAvatarPreview(user.avatar.url);
-//     }
-//     if(error) {
-//         notify(error);
-//         dispatch(clearErrors());
-//     }
-//   }, [user, dispatch, error]); // Only trigger when user state change
 
   return (
     <Fragment>
