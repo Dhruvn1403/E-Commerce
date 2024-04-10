@@ -23,9 +23,9 @@ import {
     FORGOT_PASSWORD_SUCCESS,
     FORGOT_PASSWORD_FAIL,
     CLEAR_MESSAGES,
-    // RESET_PASSWORD_REQUEST,
-    // RESET_PASSWORD_SUCCESS,
-    // RESET_PASSWORD_FAIL,
+    RESET_PASSWORD_REQUEST,
+    RESET_PASSWORD_SUCCESS,
+    RESET_PASSWORD_FAIL,
     // ALL_USERS_REQUEST,
     // ALL_USERS_SUCCESS,
     // ALL_USERS_FAIL,
@@ -173,7 +173,7 @@ export const profileReducer = (state = {}, action) => {
   export const forgotPasswordReducer = (state = {}, action) => {
     switch (action.type) {
       case FORGOT_PASSWORD_REQUEST:
-      // case RESET_PASSWORD_REQUEST:
+      case RESET_PASSWORD_REQUEST:
         return {
           ...state,
           loading: true,
@@ -186,15 +186,15 @@ export const profileReducer = (state = {}, action) => {
           message: action.payload,
         };
   
-      // case RESET_PASSWORD_SUCCESS:
-      //   return {
-      //     ...state,
-      //     loading: false,
-      //     success: action.payload,
-      //   };
+      case RESET_PASSWORD_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          success: action.payload,
+        };
   
       case FORGOT_PASSWORD_FAIL:
-      // case RESET_PASSWORD_FAIL:
+      case RESET_PASSWORD_FAIL:
         return {
           ...state,
           loading: false,

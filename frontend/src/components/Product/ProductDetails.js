@@ -12,16 +12,16 @@ import {
   DialogTitle,
   Button,
 } from "@material-ui/core";
-// import {useAlert} from 'react-alert'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../layout/Loader/Loader'
 import ReviewCard from './ReviewCard';
 import Helmet from '../layout/MetaData';
-// import { Helmet } from 'react-helmet';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  // const alert = useAlert();
+  const notify = (message) => toast(message);
   
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -31,7 +31,7 @@ const ProductDetails = () => {
 
     if(error){
         dispatch(clearErrors);
-        return alert.error(error);
+        return notify(error);
       }
 
     dispatch(getProductDetails(id));
@@ -104,7 +104,7 @@ const ProductDetails = () => {
   return (
 
     <div className='whole'>
-      <Helmet title={`${product.name} -- ECOMMERCE`}/>
+    <Helmet title={`${product.name} -- ECOMMERCE`}/>
 
     <div className='exceptReview'>
       {/* <div className="photos"> */}
@@ -224,6 +224,8 @@ const ProductDetails = () => {
           ) : (
             <p className="noReviews">No Reviews Yet</p>
           )}
+
+          <ToastContainer/>
 
     </div>
     

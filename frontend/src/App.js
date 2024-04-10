@@ -11,6 +11,7 @@ import Profile from './components/User/Profile.js';
 import UpdateProfile from './components/User/UpdateProfile.js';
 import UpdatePassword from './components/User/UpdatePassword.js';
 import ForgotPassword from './components/User/ForgotPassword.js';
+import ResetPassword from './components/User/ResetPassword.js';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
 import store from './store.js';
@@ -50,6 +51,7 @@ function App() {
         {isAuthenticated && <Route exact path="/me/update" element={<UpdateProfile/>}/>}
         {isAuthenticated && <Route exact path="/password/update" element={<UpdatePassword/>}/>}
         <Route exact path="/password/forgot" element={<ForgotPassword/>}/>
+        <Route exact path="/password/reset/:token" element={<ResetPassword/>}/>
       </Routes>
       <Footer/>
     </Router>
