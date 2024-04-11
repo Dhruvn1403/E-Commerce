@@ -99,4 +99,40 @@
     border-radius: 10px;
     background-color: rgb(179, 179, 179);
   }
+
+  @media screen and (max-width: 600px) {
+
+    .filterBox {
+      font: 100 0.8vmax "Roboto";
+      width: 20vmax;
+      position: absolute;
+      top: 18vmax;
+      left: 19vmax;
+      text-align: center;
+      padding: 1.5vmax;
+      border-radius: 10px;
+      background-color: rgb(179, 179, 179);
+      height: 10.5vmax;
+    }
+    .filterBox > p {
+      font-size: large;
+    }
+
+    .products {
+      margin-top: 17vmax;
+    }
+    
+  
+    .categoryBox {
+      height: 10.5vmax;
+      width: 20vmax;
+      position: absolute;
+      top: 18vmax;
+      left: 44vmax;
+      text-align: center;
+      padding: 1.5vmax;
+      border-radius: 10px;
+      background-color: rgb(179, 179, 179);
+    }
+  }
   

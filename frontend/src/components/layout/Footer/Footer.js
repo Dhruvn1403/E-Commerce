@@ -7,7 +7,7 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <footer id="footer">
+    <footer className="footer">
 
         <div className="leftFooter">
             <h4>DOWNLOAD OUR APP</h4>

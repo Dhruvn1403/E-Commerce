@@ -22,8 +22,6 @@ const UpdatePassword = ({ history }) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const notify = (message) => toast(message);
-
   const updatePasswordSubmit = (e) => {
     e.preventDefault();
 
@@ -37,17 +35,18 @@ const UpdatePassword = ({ history }) => {
   };
 
   useEffect(() => {
+
+    // const notify = (message) => toast(message);
+    const notifyError = (message) => toast.error(message);
+    const notifySuccess = (message) => toast.success(message);
+
     if (error) {console.error(error);
-      notify(error)
+      notifyError(error)
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
-    notify("Password updated successfully")
-    // console.log("updated")
-
-    //   navigate("/account");
-
+    notifySuccess("Password updated successfully")
       dispatch({
         type: UPDATE_PASSWORD_RESET,
       });

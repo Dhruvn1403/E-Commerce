@@ -70,3 +70,9 @@
     width: 35px;
     height: 35px;
   }
+
+  @media screen and (max-width: 520px){
+    .header {
+      width: max-content;
+    }
+  }

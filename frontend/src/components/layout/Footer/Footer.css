@@ -4,6 +4,7 @@ footer{
     background-color: #007bff;
     color: white;
     display: flex;
+    justify-content: space-between; /* Align items evenly across the footer */
     align-items: center;
 }
 
@@ -73,4 +74,19 @@ footer{
 }
 .rightFooter > a:hover {
     color: #000000;
+}
+
+@media screen and (max-width: 520px){
+    .footer {
+        flex-direction: column; /* Stack footer sections vertically on small screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    .leftFooter,
+    .midFooter,
+    .rightFooter {
+        width: 100%; /* Make each footer section take up full width on small screens */
+        margin-bottom: 20px; /* Add spacing between footer sections */
+    }
 }

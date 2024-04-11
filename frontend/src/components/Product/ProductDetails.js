@@ -12,6 +12,7 @@ import {
   DialogTitle,
   Button,
 } from "@material-ui/core";
+import { addItemsToCart } from '../../actions/cartAction';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../layout/Loader/Loader'
@@ -21,7 +22,8 @@ import Helmet from '../layout/MetaData';
 const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const notify = (message) => toast(message);
+  const notifyError = (message) => toast.error(message);
+  const notifySuccess = (message) => toast.success(message);
   
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -31,7 +33,7 @@ const ProductDetails = () => {
 
     if(error){
         dispatch(clearErrors);
-        return notify(error);
+        return notifyError(error);
       }
 
     dispatch(getProductDetails(id));
@@ -44,24 +46,21 @@ const ProductDetails = () => {
   const [comment, setComment] = useState("");
 
   const increaseQuantity = () => {
-    if (product.Stock <= quantity){
-       return;
-    }
+    if (product.Stock <= quantity) return;
     const qty = quantity + 1;
     setQuantity(qty);
   };
 
   const decreaseQuantity = () => {
     if (1 >= quantity) return;
-
     const qty = quantity - 1;
     setQuantity(qty);
   };
 
-  // const addToCartHandler = () => {
-  //   dispatch(addItemsToCart(id, quantity));
-  //   alert.success("Item Added To Cart");
-  // };
+  const addToCartHandler = () => {
+    dispatch(addItemsToCart(id, quantity));
+    notifySuccess("Item Added To Cart");
+  };
 
   const submitReviewToggle = () => {
     open ? setOpen(false) : setOpen(true);
@@ -150,6 +149,7 @@ const ProductDetails = () => {
                   </div>
                   <button
                     disabled={product.Stock < 1 ? true : false}
+                    onClick={addToCartHandler}
                   >
                     Add to Cart
                   </button>

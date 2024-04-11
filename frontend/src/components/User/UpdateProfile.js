@@ -54,7 +54,8 @@ const UpdateProfile = ({ history }) => {
 
   useEffect(() => {
 
-    const notify = (message) => toast(message);
+    const notifyError = (message) => toast.error(message);
+    const notifySuccess = (message) => toast.success(message);
 
     if (user) {
       setName(user.name);
@@ -63,13 +64,13 @@ const UpdateProfile = ({ history }) => {
     }
 
     if (error) {
-      notify(error);
+      notifyError(error);
       dispatch(clearErrors());
     }
 
     if (isUpdated) {
 
-      notify("Profile Updated Successfully");
+      notifySuccess("Profile Updated Successfully");
       dispatch({
         type: UPDATE_PROFILE_RESET,
       });
