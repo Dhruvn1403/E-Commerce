@@ -27,6 +27,7 @@
     "nodemailer": "^6.9.12",
     "overlay-nav-react": "^1.7.1",
     "overlay-navbar": "^1.2.3",
+    "razorpay": "^2.9.2",
     "react-alert": "^7.0.3",
     "react-icons": "^5.0.1",
     "react-simply-carousel": "^9.1.2",

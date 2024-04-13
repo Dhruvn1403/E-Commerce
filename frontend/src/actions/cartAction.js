@@ -29,7 +29,7 @@ export const removeItemsFromCart = ( id ) => async(dispatch, getState) => {
         type : REMOVE_CART_ITEM,
         payload : id
     })
-
+    
     localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 
 }
@@ -43,5 +43,5 @@ export const saveShippingInfo = (data) => async(dispatch, getState) => {
     })
 
     localStorage.setItem("shippingInfo", JSON.stringify(getState().cart.shippingInfo));
-    console.log(localStorage.getItem("shippingInfo"))
+    
 }

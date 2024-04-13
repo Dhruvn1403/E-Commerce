@@ -20,7 +20,7 @@ const UserOptions = ({ user, isAuthenticated }) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const notify = (message) => toast(message);
+  const notifySuccess = (message) => toast.success(message);
 
   const options = [
     { icon: <SearchIcon />, name: "Search", func: searchProduct },
@@ -65,7 +65,7 @@ const UserOptions = ({ user, isAuthenticated }) => {
   }
   async function logoutUser() {
     await dispatch(logOut());
-    notify("Logged Out Successfully");
+    notifySuccess("Logged Out Successfully");
     navigate("/login");
   }
 
