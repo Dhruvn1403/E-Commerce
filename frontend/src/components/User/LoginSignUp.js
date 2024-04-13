@@ -1,5 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 import FaceIcon from "@material-ui/icons/Face";
@@ -17,6 +17,7 @@ const LoginSignUp = () => {
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const { error, loading, isAuthenticated } = useSelector((state) => state.user);
 
@@ -43,16 +44,19 @@ const LoginSignUp = () => {
   const [avatar, setAvatar] = useState("/Profile.jpeg");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.jpeg");
 
+  const redirect = location.search ? location.search.split("=")[1] : "/"
+
   useEffect(() => {
+
     if(error) {
         notify(error);
         dispatch(clearErrors());
     }
 
     if(isAuthenticated) {
-        navigate("/account");
+        navigate(redirect);
     }
-  }, [dispatch, navigate, isAuthenticated, error])
+  }, [dispatch, navigate, isAuthenticated, error, redirect])
 
   const notify = (message) => toast(message);
 

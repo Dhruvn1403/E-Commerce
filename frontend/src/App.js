@@ -12,6 +12,9 @@ import UpdateProfile from './components/User/UpdateProfile.js';
 import UpdatePassword from './components/User/UpdatePassword.js';
 import ForgotPassword from './components/User/ForgotPassword.js';
 import ResetPassword from './components/User/ResetPassword.js';
+import Cart from './components/Cart/Cart.js'
+import Shipping from './components/Cart/Shipping.js'
+import ConfirmOrder from './components/Cart/ConfirmOrder.js'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
 import store from './store.js';
@@ -52,6 +55,9 @@ function App() {
         {isAuthenticated && <Route exact path="/password/update" element={<UpdatePassword/>}/>}
         <Route exact path="/password/forgot" element={<ForgotPassword/>}/>
         <Route exact path="/password/reset/:token" element={<ResetPassword/>}/>
+        {isAuthenticated && <Route exact path="/cart" element={<Cart/>}/>}
+        {isAuthenticated && <Route exact path="/shipping" element={<Shipping/>}/>}
+        {isAuthenticated && <Route exact path="/order/confirm" element={<ConfirmOrder/>}/>}
       </Routes>
       <Footer/>
     </Router>

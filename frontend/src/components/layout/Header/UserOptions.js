@@ -12,10 +12,10 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { logOut } from "../../../actions/userAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserOptions = ({ user, isAuthenticated }) => {
-//   const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,11 +29,10 @@ const UserOptions = ({ user, isAuthenticated }) => {
     {
       icon: (
         <ShoppingCartIcon
-        //   style={{ color: cartItems.length > 0 ? "blue" : "unset" }}
+          style={{ color: cartItems.length > 0 ? "007bff" : "unset" }}
         />
       ),
-    //   name: `Cart(${cartItems.length})`,
-      name: "cart",
+      name: `Cart(${cartItems.length})`,
       func: cart,
     },
     { icon: <ExitToAppIcon />, name: "LogOut", func: logoutUser }

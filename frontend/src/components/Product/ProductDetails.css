@@ -109,7 +109,7 @@
     text-decoration: none;
     color: #ffffff;
     background-color: #007bff;
-    border: 2px solid #003cff;
+    border: 2px solid #007bff;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
@@ -117,7 +117,7 @@
 
 .detailsBlock-3-1 > button:hover {
     background-color: #0056b3;
-    border-color: #006aff;
+    border: 2px solid #0056b3;
 }
 
 .detailsBlock-3-1 > button:focus {
@@ -156,8 +156,8 @@
     border: none;
     margin: 0 auto;
     padding: 0.5vmax;
-    width: 1.5vmax;
-    text-align: center;
+    width: 2vmax;
+    text-align: right;
     outline: none;
     /* font: 400 0.8vmax "Roboto"; */
     /* color: rgba(0, 0, 0, 0.74); */
@@ -264,6 +264,33 @@
     font: 400 1.3vmax "Gill Sans";
     text-align: center;
     color: rgba(0, 0, 0, 0.548);
+  }
+
+  @media screen and (max-width: 700px){
+
+    .exceptReview{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slider{
+      width: 70%;
+      margin: auto;
+      /* margin-left: 2vmax; */
+  }
+
+    .blocks{
+      background-color: rgba(239, 239, 239, 0.899);
+      padding-top: 2vmax;
+      padding-bottom: 2vmax;
+      border: 1px solid black;
+      margin: auto;
+      margin-top: 5vmax;
+      width: 70%;
+      justify-content: center;
+      align-items: center;
+      /* margin-right: 2vmax; */
+    }
   }
   
 
