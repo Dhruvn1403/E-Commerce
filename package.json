@@ -16,9 +16,10 @@
     "body-parser": "^1.20.2",
     "cloudinary": "^2.1.0",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "country-state-city": "^3.2.1",
     "dotenv": "^16.4.5",
-    "express": "^4.18.3",
+    "express": "^4.19.2",
     "express-fileupload": "^1.5.0",
     "flowbite-react": "^0.7.5",
     "history": "^5.3.0",
@@ -33,6 +34,7 @@
     "react-simply-carousel": "^9.1.2",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
+    "stripe": "^15.6.0",
     "validator": "^13.11.0"
   }
 }

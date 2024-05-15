@@ -29,8 +29,13 @@
   }
   
   .CartItemCard > div > p {
-    color: red;
-    font: 100 0.8vmax "Roboto";
+    width: fit-content;
+    padding: 4px;
+    margin-top: 5px;
+    border-radius: 4px;
+    background-color: red;
+    color: white;
+    font: 100 1vmax "Roboto";
     cursor: pointer;
   }
   

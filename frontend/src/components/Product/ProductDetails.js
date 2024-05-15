@@ -59,7 +59,10 @@ const ProductDetails = () => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
-    notifySuccess("Item Added To Cart");
+    const toastId = notifySuccess("Item Added To Cart");
+    setTimeout(() => {
+      toast.dismiss(toastId);
+    }, 1500);
   };
 
   const submitReviewToggle = () => {
