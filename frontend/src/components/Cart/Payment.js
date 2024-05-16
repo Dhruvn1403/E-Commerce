@@ -19,13 +19,16 @@ import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import { useNavigate } from "react-router-dom";
 import { createOrder, clearErrors } from "../../actions/orderAction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const alert = useAlert();
+  const notifySuccess = (message) => toast.success(message);
+  const notifyError = (message) => toast.error(message);
   const stripe = useStripe();
   const elements = useElements();
   const payBtn = useRef(null);
@@ -99,26 +102,33 @@ const Payment = () => {
 
       if (error) {
 
-        console.error('Error occurred during payment confirmation:', error);
+        const toastId = notifyError('Error occurred during payment confirmation:'.concat(error.message));
+        setTimeout(() => {
+          toast.dismiss(toastId);
+        },2000)
         payBtn.current.disabled = false;
-        // Handle error
+        dispatch(clearErrors());
+
       } 
       
       else if (paymentIntent && paymentIntent.status === 'succeeded') {
 
-        console.log('Payment successful:', paymentIntent);
+        notifySuccess('Payment successful\nid: '.concat(paymentIntent.id));
         
         order.paymentInfo = {
           id: paymentIntent.id,
-          status: paymentIntent.status
+          status: paymentIntent.status  
         }
         dispatch(createOrder(order));
 
-        navigate("/success");
+        setTimeout(() => {
+          navigate("/success");
+        },2000);
+
       }
 
     } catch (error) {
-      payBtn.current.disabled = false;console.log(error)
+      payBtn.current.disabled = false;
       console.error(error.response.data.message);
     }
   };
@@ -158,6 +168,7 @@ const Payment = () => {
           />
         </form>
       </div>
+      <ToastContainer/>
     </Fragment>
   );
 };

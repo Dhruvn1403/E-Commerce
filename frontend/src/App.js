@@ -18,6 +18,8 @@ import Shipping from './components/Cart/Shipping.js'
 import ConfirmOrder from './components/Cart/ConfirmOrder.js'
 import Payment from './components/Cart/Payment.js'
 import OrderSuccess from './components/Cart/orderSuccess.js';
+import MyOrders from './components/Order/MyOrders.js';
+import OrderDetails from "./components/Order/OrderDetails.js";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import webFont from 'webfontloader';
 import store from './store.js';
@@ -83,6 +85,8 @@ function App() {
             </Elements>
           }/>}
         {isAuthenticated && <Route exact path="/success" element={<OrderSuccess/>}/>}
+        {isAuthenticated && <Route exact path="/orders" element={<MyOrders/>}/>}
+        {isAuthenticated && <Route exact path="/order/:id" element={<OrderDetails/>}/>}
       </Routes>
       <Footer/>
     </Router>

@@ -29,6 +29,13 @@ const Shipping = ( ) => {
   const [pinCode, setPinCode] = useState(shippingInfo.pinCode);
   const [phoneNo, setPhoneNo] = useState(shippingInfo.phoneNo);
 
+  // const [address, setAddress] = useState("");
+  // const [city, setCity] = useState("");
+  // const [state, setState] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [pinCode, setPinCode] = useState("");
+  // const [phoneNo, setPhoneNo] = useState("");
+
   const notifyError = (message) => toast.error(message);
   
   const shippingSubmit = (e) => {
