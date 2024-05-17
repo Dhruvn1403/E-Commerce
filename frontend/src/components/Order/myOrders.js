@@ -27,11 +27,11 @@ const MyOrders = () => {
       headerName: "Status",
       minWidth: 150,
       flex: 0.5,
-      cellStyle: (params) => ({
-        color: params.getValue(params.id, "status") === "Delivered"
-          ? "green"
-          : "red"
-      }),
+      cellClassName: (params) => {
+        return params.getValue(params.id, "status") === "Delivered"
+          ? "greenColor"
+          : "redColor";
+      },
     },
     {
       field: "itemsQty",

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './ProductDetails.css'
-import { getProductDetails, clearErrors } from '../../actions/productAction'
+import { getProductDetails, newReview, clearErrors } from '../../actions/productAction'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import Slider from "react-slick";
@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loader from '../layout/Loader/Loader'
 import ReviewCard from './ReviewCard';
 import Helmet from '../layout/MetaData';
+import { NEW_REVIEW_RESET } from '../../constants/productConstants';
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -29,16 +30,27 @@ const ProductDetails = () => {
     (state) => state.productDetails
     );
 
+  const { success, error: reviewError} = useSelector(
+    (state) => state.newReview
+  );
+
   useEffect(() => {
 
     if(error){
+        notifyError(error);
         dispatch(clearErrors);
-        return notifyError(error);
       }
+
+    if(reviewError){
+      notifyError(reviewError);
+      dispatch(clearErrors);
+    }
+
+    dispatch({ type:NEW_REVIEW_RESET });
 
     dispatch(getProductDetails(id));
 
-  }, [dispatch, error, id])
+  }, [dispatch, error, reviewError, id, success])
 
   const [quantity, setQuantity] = useState(1);
   const [open, setOpen] = useState(false);
@@ -57,6 +69,10 @@ const ProductDetails = () => {
     setQuantity(qty);
   };
 
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  }
+
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
     const toastId = notifySuccess("Item Added To Cart");
@@ -66,7 +82,7 @@ const ProductDetails = () => {
   };
 
   const submitReviewToggle = () => {
-    open ? setOpen(false) : setOpen(true);
+    setOpen(!open);
   };
 
   const reviewSubmitHandler = () => {
@@ -76,7 +92,7 @@ const ProductDetails = () => {
     myForm.set("comment", comment);
     myForm.set("productId", id);
 
-  //   dispatch(newReview(myForm));
+    dispatch(newReview(myForm));
 
     setOpen(false);
   };
@@ -177,7 +193,7 @@ const ProductDetails = () => {
               </div>
 
               <button  className="submitReview" onClick={submitReviewToggle}>
-                Submit Review
+                Review Product
               </button>
 
           </div>
@@ -194,9 +210,10 @@ const ProductDetails = () => {
             <DialogTitle>Submit Review</DialogTitle>
             <DialogContent className="submitDialog">
               <ReactStars
-                onChange={(e) => setRating(e.target.value)}
+                onChange={handleRatingChange}
                 value={rating}
                 size={20}
+                isHalf="true"
               />
 
               <textarea
@@ -208,10 +225,10 @@ const ProductDetails = () => {
               ></textarea>
             </DialogContent>
             <DialogActions>
-              <Button  onClick={submitReviewToggle} color="secondary">
+              <Button  onClick={submitReviewToggle} id='cancelBtn'>
                 Cancel
               </Button>
-              <Button  onClick={reviewSubmitHandler} color="primary">
+              <Button  onClick={reviewSubmitHandler} id='submitBtn'>
                 Submit
               </Button>
             </DialogActions>

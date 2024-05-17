@@ -118,6 +118,8 @@
 .detailsBlock-3-1 > button:hover {
     background-color: #0056b3;
     border: 2px solid #0056b3;
+    transition: 0.5s;
+    transform: scale(1.1);
 }
 
 .detailsBlock-3-1 > button:focus {
@@ -216,6 +218,28 @@
 .submitReview:hover {
     background-color: darkgreen;
     transform: scale(1.1);
+  }
+
+#cancelBtn {
+    color: white;
+    background-color: red;
+}
+#cancelBtn:hover {
+    color: white;
+    background-color: rgb(177, 0, 0);
+    transition: 0.5s;
+    transform: scale(1.05);
+}
+
+#submitBtn {
+    color: white;
+    background-color: green; 
+  }
+#submitBtn:hover {
+    color: white;
+    background-color: darkgreen; 
+    transition: 0.5s;
+    transform: scale(1.05);
   }
 
   .reviewsHeading {
