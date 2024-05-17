@@ -6,18 +6,20 @@ import { Link, useParams } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
-// import { useAlert } from "react-alert";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderDetails = () => {
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { id } = useParams();
 
   const dispatch = useDispatch();
-//   const alert = useAlert();  
+
+  const notifyError = (message) => toast.error(message);
 
   useEffect(() => {
     if (error) {
-    //   alert.error(error);
+      notifyError(error);
       dispatch(clearErrors());
     }
 
@@ -113,6 +115,7 @@ const OrderDetails = () => {
           </div>
         </Fragment>
       )}
+      <ToastContainer/>
     </Fragment>
   );
 };

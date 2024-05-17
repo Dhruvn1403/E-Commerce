@@ -8,11 +8,13 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
 import LaunchIcon from "@material-ui/icons/Launch";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyOrders = () => {
   const dispatch = useDispatch();
 
-//   const alert = useAlert();
+  const notifyError = (message) => toast.error(message);
 
   const { loading, error, orders } = useSelector((state) => state.myOrders);
   const { user } = useSelector((state) => state.user);
@@ -77,7 +79,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (error) {
-      console.error(error);
+      notifyError(error);
       dispatch(clearErrors());
     }
 
@@ -104,6 +106,7 @@ const MyOrders = () => {
           <Typography id="myOrdersHeading">{user.name}'s Orders</Typography>
         </div>
       )}
+      <ToastContainer/>
     </Fragment>
   );
 };
